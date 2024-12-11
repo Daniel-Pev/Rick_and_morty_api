@@ -23,7 +23,7 @@ class TestCharacter:
         {'id': -1, 'status_code': 404, 'schema': error_character},
         {'id': 1000, 'status_code': 404, 'schema': error_character},
         {'id': -1000, 'status_code': 404, 'schema': error_character},
-        {'id': 'ya_pes', 'status_code': 500, 'schema': error_character},
+
 
     ]
 

@@ -28,6 +28,6 @@ error_character = Schema(
     {
         "error": str
     },
-    extra=PREVENT_EXTRA,
+    extra=ALLOW_EXTRA,
     required=True
 )

@@ -26,7 +26,3 @@ class CharacterApi(Api):
             return self.get(url=f'{self.url}/character/{character_id}')
         else:
             return self.get(url=f'{self.url}/character', params=params)
-
-
-char = CharacterApi()
-char.get_character(character_id=None)
