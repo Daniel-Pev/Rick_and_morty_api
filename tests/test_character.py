@@ -2,13 +2,14 @@
 Rick and Motry.
 Testing file
 """
-
+import allure
 import pytest
 from pytest_voluptuous import S
 
-from common.helper.schema.trainer import valid_character, error_character
+from common.helper.schema.character import valid_character, error_character
 
 
+@allure.feature('Character testing')
 class TestCharacter:
     """
     Test for character
@@ -23,10 +24,12 @@ class TestCharacter:
         {'id': -1, 'status_code': 404, 'schema': error_character},
         {'id': 1000, 'status_code': 404, 'schema': error_character},
         {'id': -1000, 'status_code': 404, 'schema': error_character},
-
+        {'id': 'dwadadaw', 'status_code': 500, 'schema': error_character},
+        {'id': '!@?&', 'status_code': 500, 'schema': error_character}
 
     ]
 
+    @allure.story('Get Character')
     @pytest.mark.parametrize('case', CASES)
     def test_character(self, case, api):
         """
@@ -35,7 +38,12 @@ class TestCharacter:
         response = api.get_character(character_id=case['id'])
 
         api.check_status_code(expected_code=case['status_code'])
-        if not isinstance(case['id'], int):
+        if not case['id']:
+            for schema in response.response.json()[1:]:
+                assert S(case['schema']) == schema
+        if response.response.status_code >= 500:
+            assert S(case['schema']) == response.response.json()
+        elif not isinstance(case['id'], int):
             for schema in response.response.json():
                 assert S(case['schema']) == schema
         else:

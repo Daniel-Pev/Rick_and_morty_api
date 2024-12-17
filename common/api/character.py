@@ -1,6 +1,7 @@
 """
 Character endpoint
 """
+import allure
 
 from common.api.basic import Api
 
@@ -22,7 +23,8 @@ class CharacterApi(Api):
         """
         Get character
         """
-        if character_id:
-            return self.get(url=f'{self.url}/character/{character_id}')
-        else:
+        with allure.step('get character by id'):
+            if character_id:
+                return self.get(url=f'{self.url}/character/{character_id}')
+        with allure.step('get character by params'):
             return self.get(url=f'{self.url}/character', params=params)
