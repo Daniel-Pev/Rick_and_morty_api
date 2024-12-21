@@ -1,0 +1,8 @@
+2024-12-17 20:24:22.577 | INFO     | common.helper.logger:log:8 - REQUEST METHOD: GET
+2024-12-17 20:24:22.578 | INFO     | common.helper.logger:log:9 - REQUEST URL: https://rickandmortyapi.com/api/character/827
+2024-12-17 20:24:22.578 | INFO     | common.helper.logger:log:10 - REQUEST HEADERS: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'}
+2024-12-17 20:24:22.578 | INFO     | common.helper.logger:log:11 - REQUEST BODY: None
+2024-12-17 20:24:22.578 | INFO     | common.helper.logger:log:12 - STATUS CODE: 404
+2024-12-17 20:24:22.579 | INFO     | common.helper.logger:log:13 - RESPONSE TIME: 367 ms
+2024-12-17 20:24:22.579 | INFO     | common.helper.logger:log:14 - RESPONSE HEADERS: {'Access-Control-Allow-Origin': '*', 'Age': '0', 'Cache-Status': '"Netlify Edge"; fwd=miss', 'Content-Length': '31', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Tue, 17 Dec 2024 17:24:21 GMT', 'Etag': 'W/"1f-t9l5xVmJZaPHJIukjZQ7Mw4gpG8"', 'Netlify-Vary': 'query', 'Server': 'Netlify', 'Strict-Transport-Security': 'max-age=31536000', 'X-Nf-Request-Id': '01JFATCENX7W9MAPX1EMB41XQP', 'X-Powered-By': 'Express'}
+2024-12-17 20:24:22.579 | INFO     | common.helper.logger:log:15 - RESPONSE BODY: {"error":"Character not found"}

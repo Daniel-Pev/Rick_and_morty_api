@@ -9,6 +9,7 @@ from pytest_voluptuous import S
 from common.helper.schema.character import valid_character, error_character
 
 
+@pytest.mark.character
 @allure.feature('Character testing')
 class TestCharacter:
     """
@@ -31,13 +32,13 @@ class TestCharacter:
 
     @allure.story('Get Character')
     @pytest.mark.parametrize('case', CASES)
-    def test_character(self, case, api):
+    def test_character(self, case, api_character):
         """
         Get character
         """
-        response = api.get_character(character_id=case['id'])
+        response = api_character.get_character(character_id=case['id'])
 
-        api.check_status_code(expected_code=case['status_code'])
+        api_character.check_status_code(expected_code=case['status_code'])
         if not case['id']:
             for schema in response.response.json()[1:]:
                 assert S(case['schema']) == schema
